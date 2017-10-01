@@ -3703,7 +3703,9 @@
 
 @font-face {
     font-family: Material-Design-Iconic-Font;
-    src: url(assets/Material-Design-Iconic-Font.a4d31128b633bc0b1cc1f18a34fb3851.woff2) format("woff2"), url(assets/Material-Design-Iconic-Font.d2a55d331bdd1a7ea97a8a1fbb3c569c.woff) format("woff"), url(assets/Material-Design-Iconic-Font.b351bd62abcd96e924d9f44a3da169a7.ttf) format("truetype")
+    src: url(../fonts/Material-Design-Iconic-Font.a4d31128b633bc0b1cc1f18a34fb3851.woff2) format("woff2"),
+    url(../fonts/Material-Design-Iconic-Font.d2a55d331bdd1a7ea97a8a1fbb3c569c.woff) format("woff"),
+    url(../fonts/Material-Design-Iconic-Font.b351bd62abcd96e924d9f44a3da169a7.ttf) format("truetype")
 }
 
 .zmdi {
