@@ -1,27 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Page, Button, Toolbar} from 'react-onsenui';
-import {notification} from 'onsenui';
+import {Tabbar, Tab} from 'react-onsenui';
+
+import HomePage from './HomePage';
+import SettingsPage from './SettingsPage';
 
 export default class App extends React.Component {
-  alertPopup() {
-    notification.alert('This is an Onsen UI alert notification test.');
-  }
-
-  renderToolbar() {
-    return (
-      <Toolbar>
-        <div className='center'>Onsen UI test</div>
-      </Toolbar>
-    );
+  renderTabs() {
+    return [
+      {
+        content: <HomePage />,
+        tab: <Tab label='Home' icon='md-home' />
+      },
+      {
+        content: <SettingsPage />,
+        tab: <Tab label='Settings' icon='md-settings' />
+      }
+    ]
   }
 
   render() {
     return (
-      <Page renderToolbar={this.renderToolbar}>
-        <div>Hello World!</div>
-        <Button onClick={this.alertPopup}>Click Me!</Button>
-      </Page>
+      <Tabbar initialIndex={0} renderTabs={this.renderTabs.bind(this)} />
     );
   }
 }
