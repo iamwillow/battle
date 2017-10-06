@@ -5,6 +5,8 @@ import {Tabbar, Tab} from 'react-onsenui';
 import HomePage from './HomePage';
 import SettingsPage from './SettingsPage';
 
+import './assets/css/stylesheet.css';
+
 export default class App extends React.Component {
   renderTabs() {
     return [
