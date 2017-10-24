@@ -2,16 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Tabbar, Tab} from 'react-onsenui';
 
-import HomePage from './HomePage';
+import TaskList from './components/TaskList';
 import SettingsPage from './SettingsPage';
-
-import './assets/css/stylesheet.css';
 
 export default class App extends React.Component {
   renderTabs() {
     return [
       {
-        content: <HomePage />,
+        content: <TaskList />,
         tab: <Tab label='Home' icon='md-home' />
       },
       {
@@ -24,6 +22,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Tabbar initialIndex={0} renderTabs={this.renderTabs.bind(this)} />
+      
     );
   }
 }

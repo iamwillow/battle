@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 // Onsen UI Styling and Icons
 require('onsenui/css-components-src/src/onsen-css-components.css');
 require('onsenui/css/onsenui.css');
+require('./assets/css/stylesheet.css');
 
 import App from './App';
 
