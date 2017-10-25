@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Tabbar, Tab} from 'react-onsenui';
 
 import TaskList from './components/TaskList';
-import SettingsPage from './SettingsPage';
+//import SettingsPage from './SettingsPage';
 
 export default class App extends React.Component {
   renderTabs() {
@@ -21,8 +21,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Tabbar initialIndex={0} renderTabs={this.renderTabs.bind(this)} />
-      
+      <TaskList />
     );
   }
 }
+
+//<Tabbar initialIndex={0} renderTabs={this.renderTabs.bind(this)} /> //for onsen tabs
