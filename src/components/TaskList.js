@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Page, Toolbar } from 'react-onsenui';
+import { Page, Toolbar } from 'react-onsenui';
 import TaskItems from './TaskItems';
 
 export default class TaskList extends Component {
@@ -12,9 +12,10 @@ export default class TaskList extends Component {
     }
 
     this.addTask = this.addTask.bind(this);
+    this.deleteHandler = this.deleteHandler.bind(this);
   }
 
-  addTask(e){
+  addTask(e) {
     e.preventDefault();
     var taskArray = this.state.tasks;
 
@@ -25,6 +26,7 @@ export default class TaskList extends Component {
           wall: Math.floor(Math.random() * 4) + 1,
           monster: Math.floor(Math.random() * 5) + 1,
           class: '',
+          id: Date.now(),
           key: Date.now()
         }
       );
@@ -35,6 +37,28 @@ export default class TaskList extends Component {
 
       this.textInput.value = "";
     }
+  }
+
+  deleteHandler(id) {
+    var newState = this.state.tasks.filter(function( obj ) {
+      return (obj.id !== id); // returns array without item
+      //return obj.id == id;  // returns only item
+    });
+    console.log(newState);
+    
+    this.setState({
+      tasks: newState
+    });
+  }
+
+  deleteItem(key) {
+    var filteredItems = this.state.items.filter(function (item) {
+      return (item.key !== key);
+    });
+   
+    this.setState({
+      items: filteredItems
+    });
   }
 
   render() {
@@ -60,7 +84,9 @@ export default class TaskList extends Component {
             </button>
           </form>
 
-          <TaskItems taskData={this.state.tasks} />
+          <TaskItems
+            taskData={this.state.tasks}
+            deleteHandler={this.deleteHandler.bind(this)}/>
         </div>
 
       </Page>

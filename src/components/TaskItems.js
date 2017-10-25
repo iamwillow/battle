@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import TaskItem from './TaskItem';
 
@@ -11,6 +11,8 @@ const Tasks = (props) => {
           wall={taskData.wall}
           monster={taskData.monster}
           class={taskData.class}
+          id={taskData.id}
+          deleteHandler={props.deleteHandler}
           key={taskData.key} />
       )}
     </div>

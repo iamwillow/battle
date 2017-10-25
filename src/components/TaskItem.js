@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class TaskItem extends Component {
+export default class TaskItem extends Component {
   constructor(props) {
     super(props);
 
@@ -14,10 +14,10 @@ class TaskItem extends Component {
     this.deleteTask = this.deleteTask.bind(this);
   }
 
-  taskClickHandler(key, e) {
+  taskClickHandler() {
     this.addClass();
     setTimeout(function () {
-      this.deleteTask(key, e)
+      this.deleteTask()
     }.bind(this), 2000);
   }
 
@@ -32,17 +32,16 @@ class TaskItem extends Component {
     }.bind(this), 1000);
   };
 
-  deleteTask(key, e) {
-    console.log('complete');
+  deleteTask() {
+    this.props.deleteHandler(this.props.id);
   }
 
   render() {
     return (
       <div>
         <p
-          key={this.props.key}
           className={"todo-item" + " wall-" + this.props.wall}
-          onClick={(e) => { this.addClass(1, e) }}>
+          onClick={(e) => { this.taskClickHandler() }}>
           {this.props.text}
           <span className={this.state.linkClass.join(' ')} />
           <img
@@ -54,8 +53,3 @@ class TaskItem extends Component {
     );
   }  
 }
-
-
-//<img className="link" src={require('../assets/img/link.gif')} />
-
-export default TaskItem;
